@@ -1,6 +1,15 @@
 # Svelte + TS + Vite
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+**Technology stack**
+- Frontend framework: Svelte + Vite + Typescript
+- Database: Supabase
+- Libraries: Plaid
+
+## Roadmap
+- Tree of people in my life (drawings of favorite memories, timeline, contact details)
+- Personal finance (line graph of bank balance, daily spending) 
+- Favorite things (Maplestory, Yorushika, Schubert, etc.)
+- Things to follow (Google X, Paul Graham, etc.)
 
 ## Recommended IDE Setup
 
