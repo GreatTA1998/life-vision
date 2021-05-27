@@ -1,7 +1,10 @@
 <script lang="ts">
   import logo from './assets/svelte.png'
   import Counter from './lib/Counter.svelte'
+  import LineGraph from './lib/LineGraph.svelte'
 </script>
+
+<LineGraph/>
 
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
