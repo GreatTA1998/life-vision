@@ -4,6 +4,7 @@
 
   // TODO: use Plaid to fetch the data
   let accountBalance = 4000; 
+  let monthlyIncome = 0; 
   let numOfFunActivitiesPerWeek = 0; 
   let numOfDatesPerMonth = 0; 
   let numOfLettersPerYear = 1; 
@@ -140,7 +141,7 @@
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                 <path d="M20 6L9 17l-5-5"></path>
               </svg>
-            </span>Supplies: OK
+            </span>Supplies: need shampoo
           </p>
 
           <button class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">More info
@@ -159,12 +160,12 @@
             <span class="{accountBalance < 3000 * 6 ? 'text-red-600' : ''}">${accountBalance}</span>
             <span class="text-lg ml-1 font-normal text-gray-500">account balance</span>
           </h1>
-          <p class="flex items-center text-gray-600 mb-2">
+          <p class="flex items-center { monthlyIncome < 4000 ? 'text-red-600' : 'text-gray-600' } mb-2">
             <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
               <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" class="w-3 h-3" viewBox="0 0 24 24">
                 <path d="M20 6L9 17l-5-5"></path>
               </svg>
-            </span>Income: $0/month
+            </span>Income: ${ monthlyIncome }/month
           </p>
           <p class="flex items-center text-gray-600 mb-2">
             <span class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
