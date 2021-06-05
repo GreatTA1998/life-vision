@@ -7,14 +7,8 @@
 
   import PricingsDemo from './lib/PricingsDemo.svelte'
   import VirtualDesktop from './lib/VirtualDesktop.svelte'
+  import MyExperience from './lib/MyExperience.svelte'
 </script>
-
-<!-- <iframe
-  src="https://explain.mit.edu"
-  target="_top"
-  width="1000"
-  height="500"
-/> -->
 
 <!-- iFrame can enable different technology stacks to be mixed and matched -->
 <!-- <iframe src="https://calendar.google.com/calendar/embed?src=be0qdjkrvrtbjk5ln964p13l90%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
@@ -27,6 +21,8 @@
 </a>
 
 <VirtualDesktop/>
+
+<MyExperience/>
 
 <!-- <Whiteboard/> -->
 

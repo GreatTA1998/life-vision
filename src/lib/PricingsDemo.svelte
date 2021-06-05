@@ -99,11 +99,6 @@
           </p>
 
           <!-- Drink water, meditate etc. will be included in the detailed dashboard -->
-          <button class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>
 
@@ -127,11 +122,6 @@
           </p>
 
           <!-- Drink water, meditate etc. will be included in the detailed dashboard -->
-          <button class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>
 
@@ -165,12 +155,6 @@
               </svg>
             </span>Supplies: need shampoo
           </p>
-
-          <button class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>
       
@@ -210,11 +194,6 @@
               </svg>
             </span>Food cost: $40/day
           </p>
-          <button class="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>
 
@@ -226,11 +205,6 @@
             <span class="{numOfFunActivitiesPerWeek === 0 ? 'text-red-600' : ''}">{ numOfFunActivitiesPerWeek }</span>
             <span class="text-lg ml-1 font-normal text-gray-500">fun activities/week</span>
           </h1>
-          <button class="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>   
 
@@ -243,11 +217,6 @@
             <span class="{numOfFunActivitiesPerWeek === 0 ? 'text-red-600' : ''}">0</span>
             <span class="text-lg ml-1 font-normal text-gray-500">meals/month</span>
           </h1>
-          <button class="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>   
 
@@ -261,11 +230,6 @@
             <span class="{numOfFunActivitiesPerWeek === 0 ? 'text-red-600' : ''}">{ numOfLettersPerYear }</span>
             <span class="text-lg ml-1 font-normal text-gray-500">letters/year</span>
           </h1>
-          <button class="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>   
 
@@ -278,11 +242,6 @@
             <span class="{numOfFunActivitiesPerWeek === 0 ? 'text-red-600' : ''}">{ numOfDatesPerMonth  }</span>
             <span class="text-lg ml-1 font-normal text-gray-500">dates/month</span>
           </h1>
-          <button class="flex items-center mt-auto text-white bg-indigo-500 border-0 py-2 px-4 w-full focus:outline-none hover:bg-indigo-600 rounded">More info
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>   
 

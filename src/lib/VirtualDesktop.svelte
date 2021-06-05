@@ -1,4 +1,13 @@
 <script>
+  import VirtualDesktopApp from './VirtualDesktopApp.svelte'
+
+  let myFavoriteApps = [
+    { name: 'Spotify', description: 'Music & podcasts', siteURL: 'https://open.spotify.com', logoURL: 'https://e7.pngegg.com/pngimages/163/564/png-clipart-spotify-logo-spotify-samsung-gear-s3-music-streaming-media-podcast-macbook-miscellaneous-logo-thumbnail.png' },
+    { name: 'Explain', description: 'Blackboards & videos', siteURL: 'https://explain.mit.edu', logoURL: 'https://i.imgur.com/x423dzR.png' },
+    { name: 'Google Drive', description: 'Essays about life & work', siteURL: 'https://drive.google.com/drive/u/0/folders/1LFcUQ9P3xPcQutE9V1BRp2PP5gzL8Zsf', logoURL: 'https://banner2.cleanpng.com/20180706/ajj/kisspng-google-drive-google-logo-google-docs-google-drive-logo-5b3f4cee24d2f6.2516867415308751181508.jpg' },
+    { name: 'Google Calendar', description: 'Calendar & to-do list', siteURL: 'https://calendar.google.com', logoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Calendar_icon_%282020%29.svg/1200px-Google_Calendar_icon_%282020%29.svg.png' },
+    { name: 'Microsoft OneNote', description: 'Journals & personal info', siteURL: 'https://www.onenote.com/notebooks?auth=1', logoURL: 'data:image/jpeg;base64,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' }
+  ]
 
 </script>
 
@@ -9,89 +18,17 @@
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Virtual Desktop</h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">You use web apps, not desktop apps. So the browser is the new desktop.</p>
     </div>
+
     <div class="flex flex-wrap -m-2">
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full cursor-pointer" target="_blank">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://e7.pngegg.com/pngimages/163/564/png-clipart-spotify-logo-spotify-samsung-gear-s3-music-streaming-media-podcast-macbook-miscellaneous-logo-thumbnail.png">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium"><a href="https://open.spotify.com" target="_blank">Spotify</a></h2>
-            <p class="text-gray-500"><a href="https://open.spotify.com" target="_blank">Music</a></p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/84x84">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">Henry Letham</h2>
-            <p class="text-gray-500">CTO</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/88x88">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">Oskar Blinde</h2>
-            <p class="text-gray-500">Founder</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/90x90">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">John Doe</h2>
-            <p class="text-gray-500">DevOps</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/94x94">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">Martin Eden</h2>
-            <p class="text-gray-500">Software Engineer</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/98x98">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">Boris Kitua</h2>
-            <p class="text-gray-500">UX Researcher</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/100x90">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">Atticus Finch</h2>
-            <p class="text-gray-500">QA Engineer</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/104x94">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">Alper Kamu</h2>
-            <p class="text-gray-500">System</p>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
-        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/108x98">
-          <div class="flex-grow">
-            <h2 class="text-gray-900 title-font font-medium">Rodrigo Monchi</h2>
-            <p class="text-gray-500">Product Manager</p>
-          </div>
-        </div>
-      </div>
+      {#each myFavoriteApps as { name, description, siteURL, logoURL }, i}
+        <VirtualDesktopApp
+          appName={name}
+          appDescription={description}
+          appURL={siteURL}
+          logoURL={logoURL}
+        />
+      {/each}
     </div>
   </div>
 </section>
+
