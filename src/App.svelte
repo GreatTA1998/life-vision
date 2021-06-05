@@ -20,7 +20,7 @@
 <!-- <iframe src="https://calendar.google.com/calendar/embed?src=be0qdjkrvrtbjk5ln964p13l90%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
 <PricingsDemo/>
 
-<a href="https://explain.mit.edu" target="_blank">
+<a href="https://explain.mit.edu/class/mDbUrvjy4pe8Q5s5wyoD/section/mDbUrvjy4pe8Q5s5wyoD/room/hoAqWPNWAywd7MLgTfAh" target="_blank">
   <h2 class="text-center text-lg">
     Whiteboard
   </h2>
