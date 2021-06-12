@@ -24,6 +24,13 @@
 
 <MyExperience/>
 
+<!--
+TODO: 
+  1. Be able to change the metric numbers 
+  2. Be able to add additional "regression tests" to each category
+  3. Be able to upload photos
+-->
+
 <!-- <Whiteboard/> -->
 
 <!-- <StatisticsPage/> -->
