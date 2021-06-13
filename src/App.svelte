@@ -5,14 +5,14 @@
   import StatisticsPage from './lib/StatisticsPage.svelte'
   import Whiteboard from './lib/Whiteboard.svelte'
 
-  import PricingsDemo from './lib/PricingsDemo.svelte'
+  import LifeAreas from './lib/LifeAreas.svelte'
   import VirtualDesktop from './lib/VirtualDesktop.svelte'
   import MyExperience from './lib/MyExperience.svelte'
 </script>
 
 <!-- iFrame can enable different technology stacks to be mixed and matched -->
 <!-- <iframe src="https://calendar.google.com/calendar/embed?src=be0qdjkrvrtbjk5ln964p13l90%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe> -->
-<PricingsDemo/>
+<LifeAreas/>
 
 <a href="https://explain.mit.edu/class/mDbUrvjy4pe8Q5s5wyoD/section/mDbUrvjy4pe8Q5s5wyoD/room/hoAqWPNWAywd7MLgTfAh" target="_blank">
   <h2 class="text-center text-lg">
@@ -26,8 +26,8 @@
 
 <!--
 TODO: 
-  1. Be able to change the metric numbers 
-  2. Be able to add additional "regression tests" to each category
+  1. Be able to add additional "regression tests" to each category
+  2. Be able to change the metric numbers 
   3. Be able to upload photos
 -->
 
