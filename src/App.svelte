@@ -1,13 +1,10 @@
 <script lang="ts">
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
-  import LineGraph from './lib/LineGraph.svelte'
-  import StatisticsPage from './lib/StatisticsPage.svelte'
-  import Whiteboard from './lib/Whiteboard.svelte'
-
+  // import logo from './assets/svelte.png'
   import LifeAreas from './lib/LifeAreas.svelte'
+  import Whiteboard from './lib/Whiteboard.svelte'
   import VirtualDesktop from './lib/VirtualDesktop.svelte'
   import MyExperience from './lib/MyExperience.svelte'
+  import StripePayment from './lib/StripePayment.svelte'
 </script>
 
 <!-- iFrame can enable different technology stacks to be mixed and matched -->
@@ -24,6 +21,8 @@
 
 <MyExperience/>
 
+<StripePayment/>
+
 <!--
 TODO: 
   1. Be able to add additional "regression tests" to each category
@@ -31,12 +30,8 @@ TODO:
   3. Be able to upload photos
 -->
 
-<!-- <Whiteboard/> -->
-
-<!-- <StatisticsPage/> -->
-
 <!-- 
   It should be like a map - only show details when the users zoom in, so DON'T show 
   account balance graph unless I click for more information. 
 -->
-<!-- <LineGraph/> -->
+

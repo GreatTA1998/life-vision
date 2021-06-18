@@ -1,3 +1,4 @@
+<!-- Don't remove: helpful for getting started on Typescript and PostCSS -->
 <script lang="ts">
   let count: number = 0
   const increment = () => {
