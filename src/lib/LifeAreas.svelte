@@ -11,6 +11,16 @@
 
   let roomPhotoObjectURL
 
+  // log-in code
+  async function logInWithGithub () {
+    let { user, error } = await supabase.auth.signIn({
+      provider: 'github'
+    })
+    console.log('user =', user)
+    console.log('error =', error)
+  }
+  logInWithGithub()
+
   onMount(async () => {
     fetchMyPhysicalHealthTextArea()
     fetchMyRoomTextArea()
