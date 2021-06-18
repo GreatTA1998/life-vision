@@ -7,7 +7,7 @@
   // import StripePayment2 from './lib/StripePayment2.svelte'
   import Whiteboard from './lib/Whiteboard.svelte'
   import GithubLoginButton from './lib/GithubLoginButton.svelte'
-import Counter from './lib/Counter.svelte'
+  // import Counter from './lib/Counter.svelte'
 </script>
 
 
