@@ -19,7 +19,7 @@
     "vite": "^2.3.4"
   },
   "dependencies": {
-    "@stripe/stripe-js": "^1.15.0",
-    "@supabase/supabase-js": "^1.11.17"
+    "@supabase/supabase-js": "^1.11.17",
+    "stripe": "^8.156.0"
   }
 }
