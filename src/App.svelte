@@ -32,7 +32,7 @@
       const { data, error } = await supabase.from('LifeCategories').insert([
         { name: 'My physical health', metricName: 'days with 8 hours sleep', metricValue: 7, notesContent: 'Eating well, and drinking water, stretching and socializing are fundamental. Skin care matters a lot, not just for apperanace, but because itchy skin is the absolute worst.', user_email: user.email },
         { name: 'My mental health', metricName: 'weeks without insomnia', metricValue: 1, notesContent: 'If you enjoyed wasting time, it was not a waste of time (put down stories/songs/visions you like)', user_email: user.email },
-        { name: 'My room', metricName: 'major cleanup/week', metricValue: 1, notesContent: 'Soft mattresses DESTROY my spine, windows that face walls have no sunshine and destroys mood. Insects, flies and pests are a nightmare, maintain a good hygiene level.', user_email: user.email }, 
+        { name: 'My room', metricName: 'major cleanup/week', metricValue: 1, notesContent: 'Soft mattresses DESTROY my spine, thick blankets will make it really hot and hard to sleep, use thin ones. Windows that face walls have no sunshine and destroys mood. Insects, flies and pests are a nightmare, maintain a good hygiene level.', user_email: user.email }, 
         { name: 'My finance', metricName: '$ spent/week', metricValue: 140, notesContent: 'NEVER USE DOORDASH WHATSOEVER', user_email: user.email },
 
         { name: 'My peers', metricName: 'fun activities/week', metricValue: 1, user_email: user.email },

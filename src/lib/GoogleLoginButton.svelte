@@ -32,7 +32,7 @@
   <!-- <button on:click={printCurrentUser}>
     Print logged in user
   </button> -->
-  <!-- <button on:click={signOut}>
+  <button on:click={signOut}>
     Sign out
-  </button> -->
+  </button>
 {/if}
