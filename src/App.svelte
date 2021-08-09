@@ -50,6 +50,7 @@
       .select('*')
       .eq('user_id', user.id)
     
+    console.log('data =', data)
     if (data) lifeAreas = data 
   })
 
