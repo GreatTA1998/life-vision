@@ -1,10 +1,9 @@
 <script>
   import supabase from '../supabase.js'
 
-  let user = supabase.auth.user()
-  console.log('user initially =', user)
+  export let user; 
 
-  async function logInWithGithub () {
+  async function signInWithGithub () {
     let { user, error } = await supabase.auth.signIn({
       provider: 'github'
     })
@@ -18,11 +17,11 @@
 </script>
 
 {#if !user}
-  <button on:click={logInWithGithub}>
+  <button on:click={signInWithGithub} class="btn btn-blue">
     Log in with Github
   </button>
 {:else}
-  <button on:click={printCurrentUser}>
+  <!-- <button on:click={printCurrentUser} class="btn btn-blue">
     Print logged in user
-  </button>
+  </button> -->
 {/if}
