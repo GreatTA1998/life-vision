@@ -16,27 +16,29 @@
 
     // part 1: fetch the user
     user = supabase.auth.user()
+    console.log('supabase.auth.user() =', user)
 
     if (!user) return
 
     let result = await supabase.from('AllUsers').select('*').filter('email', 'eq', user.email)
     console.log('result of looking for mirror user doc =', result)
     if (result.data.length === 0) {
+      // create a mirror entry in SQL database
       const resultOfAddingUser = await supabase.from('AllUsers').insert([
-        { user_id: user.id, email: user.email }
+        { string_id: user.id, email: user.email }
       ])
       console.log('registered the user...', resultOfAddingUser)
 
       const { data, error } = await supabase.from('LifeCategories').insert([
-        { name: 'My physical health', metricName: 'days with 8 hours sleep', metricValue: 7, notesContent: 'Eating well, and drinking water, stretching and socializing are fundamental. Skin care matters a lot, not just for apperanace, but because itchy skin is the absolute worst.', user_id: user.id },
-        { name: 'My mental health', metricName: 'weeks without insomnia', metricValue: 1, notesContent: 'If you enjoyed wasting time, it was not a waste of time (put down stories/songs/visions you like)', user_id: user.id },
-        { name: 'My room', metricName: 'major cleanup/week', metricValue: 1, notesContent: 'Soft mattresses DESTROY my spine, windows that face walls have no sunshine and destroys mood. Insects, flies and pests are a nightmare, maintain a good hygiene level.', user_id: user.id }, 
-        { name: 'My finance', metricName: '$ spent/week', metricValue: 140, notesContent: 'NEVER USE DOORDASH WHATSOEVER', user_id: user.id },
+        { name: 'My physical health', metricName: 'days with 8 hours sleep', metricValue: 7, notesContent: 'Eating well, and drinking water, stretching and socializing are fundamental. Skin care matters a lot, not just for apperanace, but because itchy skin is the absolute worst.', user_email: user.email },
+        { name: 'My mental health', metricName: 'weeks without insomnia', metricValue: 1, notesContent: 'If you enjoyed wasting time, it was not a waste of time (put down stories/songs/visions you like)', user_email: user.email },
+        { name: 'My room', metricName: 'major cleanup/week', metricValue: 1, notesContent: 'Soft mattresses DESTROY my spine, windows that face walls have no sunshine and destroys mood. Insects, flies and pests are a nightmare, maintain a good hygiene level.', user_email: user.email }, 
+        { name: 'My finance', metricName: '$ spent/week', metricValue: 140, notesContent: 'NEVER USE DOORDASH WHATSOEVER', user_email: user.email },
 
-        { name: 'My peers', metricName: 'fun activities/week', metricValue: 1, user_id: user.id },
-        { name: 'My special relationships', metricName: 'phone calls/month', metricValue: 1, notesContent: 'Call grandma on 503 250 3868', user_id: user.id},
-        { name: 'My dates', metricName: 'dates/month', metricValue: 1, notesContent: 'Try ballroom dancing', user_id: user.id },
-        { name: 'My mentors', metricName: 'sessions/month', metricValue: 0, user_id: user.id }
+        { name: 'My peers', metricName: 'fun activities/week', metricValue: 1, user_email: user.email },
+        { name: 'My special relationships', metricName: 'phone calls/month', metricValue: 1, notesContent: 'Call grandma on 503 250 3868', user_email: user.email},
+        { name: 'My dates', metricName: 'dates/month', metricValue: 1, notesContent: 'Try ballroom dancing', user_email: user.email },
+        { name: 'My mentors', metricName: 'sessions/month', metricValue: 0, user_email: user.email }
       ])
       // if new user, register in table
       console.log('created 8 default life areas for the user')
@@ -45,10 +47,13 @@
     }
 
     // part 2: fetch all his/her life categories
+    console.log('user.id =', user.id)
+
     let { data, error } = await supabase
       .from('LifeCategories')
       .select('*')
-      .eq('user_id', user.id)
+      .eq('user_email', user.email)
+     //  .eq('user_id', 'd2e8219b-b478-4d6a-a7ab-c36f2696ea9e') // d2e8219b-b478-4d6a-a7ab-c36f2696ea9e user.id
     
     console.log('data =', data)
     if (data) lifeAreas = data 
@@ -61,7 +66,7 @@
       .from('LifeCategories')
       .update({ notesContent: newVal })
       .eq('name', nameOfLifeArea)
-      .eq('user_id', user.id)
+      .eq('user_email', user.email)
     console.log('successfully updated notes content, data =', data)
   }
 
@@ -71,14 +76,14 @@
       .from('LifeCategories')
       .update({ metricValue: newVal })
       .eq('name', nameOfLifeArea)
-      .eq('user_id', user.id)
+      .eq('user_email', user.email)
     console.log('successfully updated notes content, data =', data)
 
     // copy and pasted from the initial fetch of categories
     let result = await supabase
       .from('LifeCategories')
       .select('*')
-      .eq('user_id', user.id)
+      .eq('user_email', user.email)
     
     if (result.data) lifeAreas = result.data
   }
