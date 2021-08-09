@@ -18,7 +18,10 @@
     user = supabase.auth.user()
     console.log('supabase.auth.user() =', user)
 
-    if (!user) return
+    if (!user) {
+      lifeAreas = []
+      return
+    }
 
     let result = await supabase.from('AllUsers').select('*').filter('email', 'eq', user.email)
     console.log('result of looking for mirror user doc =', result)
