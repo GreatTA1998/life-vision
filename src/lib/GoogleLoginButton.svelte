@@ -25,14 +25,14 @@
 </script>
 
 {#if !user}
-  <button on:click={signInWithGoogle} class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-    Google
+  <button on:click={signInWithGoogle}>
+    Log in with Google
   </button>
 {:else}
-  <button on:click={printCurrentUser} class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+  <!-- <button on:click={printCurrentUser}>
     Print logged in user
-  </button>
-  <button on:click={signOut} class="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+  </button> -->
+  <!-- <button on:click={signOut}>
     Sign out
-  </button>
+  </button> -->
 {/if}

@@ -30,12 +30,16 @@
       <span class="text-lg ml-1 font-normal text-gray-500">
         {metricName}
       </span>
-    </h1>
+      
+      <slot>
 
+      </slot>
+    </h1>
+    
     <div class="mb-3 pt-0">
       <div class="mb-3">(Photo uploads coming soon)</div>
       <textarea bind:value={localNotesContent}
-        class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="10"
+        class="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none" rows="4"
       />
       <button on:click={emitNoteUpdateEvent}>Update notes</button>
     </div>

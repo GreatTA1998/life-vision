@@ -1,5 +1,4 @@
 <script lang="ts">
-  import LifeAreas from './lib/LifeAreas.svelte'
   import LifeArea from './lib/LifeArea.svelte'
   import GithubLoginButton from './lib/GithubLoginButton.svelte'
   import GoogleLoginButton from './lib/GoogleLoginButton.svelte'
@@ -28,17 +27,15 @@
       ])
       console.log('registered the user...', resultOfAddingUser)
 
-      // note changing your underlying lifestyle, environment, and developing habits, skills and knowledge, is probably 
-      // the way to sustainably increase all these metrics over time
       const { data, error } = await supabase.from('LifeCategories').insert([
-        { name: 'My physical health', metricName: 'days with 8 hours sleep', metricValue: 7, user_id: user.id },
-        { name: 'My mental health', metricName: 'weeks without insomnia', metricValue: 1, user_id: user.id },
-        { name: 'My room', metricName: 'major cleanup/week', metricValue: 1, user_id: user.id }, 
-        { name: 'My finance', metricName: '$ spent/week', metricValue: 140, user_id: user.id },
+        { name: 'My physical health', metricName: 'days with 8 hours sleep', metricValue: 7, notesContent: 'Eating well, and drinking water, stretching and socializing are fundamental. Skin care matters a lot, not just for apperanace, but because itchy skin is the absolute worst.', user_id: user.id },
+        { name: 'My mental health', metricName: 'weeks without insomnia', metricValue: 1, notesContent: 'If you enjoyed wasting time, it was not a waste of time (put down stories/songs/visions you like)', user_id: user.id },
+        { name: 'My room', metricName: 'major cleanup/week', metricValue: 1, notesContent: 'Soft mattresses DESTROY my spine, windows that face walls have no sunshine and destroys mood. Insects, flies and pests are a nightmare, maintain a good hygiene level.', user_id: user.id }, 
+        { name: 'My finance', metricName: '$ spent/week', metricValue: 140, notesContent: 'NEVER USE DOORDASH WHATSOEVER', user_id: user.id },
 
         { name: 'My peers', metricName: 'fun activities/week', metricValue: 1, user_id: user.id },
-        { name: 'My special relationships', metricName: 'phone calls/month', metricValue: 1, user_id: user.id},
-        { name: 'My dates', metricName: 'dates/month', metricValue: 1, user_id: user.id },
+        { name: 'My special relationships', metricName: 'phone calls/month', metricValue: 1, notesContent: 'Call grandma on 503 250 3868', user_id: user.id},
+        { name: 'My dates', metricName: 'dates/month', metricValue: 1, notesContent: 'Try ballroom dancing', user_id: user.id },
         { name: 'My mentors', metricName: 'sessions/month', metricValue: 0, user_id: user.id }
       ])
       // if new user, register in table
@@ -54,8 +51,6 @@
       .eq('user_id', user.id)
     
     if (data) lifeAreas = data 
-    console.log('lifeAreas =', lifeAreas)
-    console.log('data =', data)
   })
 
   // helper functions
@@ -69,21 +64,42 @@
     console.log('successfully updated notes content, data =', data)
   }
 
+  // helper functions
+  async function updateMetricValue (newVal, nameOfLifeArea) {
+    const { data, error } = await supabase
+      .from('LifeCategories')
+      .update({ metricValue: newVal })
+      .eq('name', nameOfLifeArea)
+      .eq('user_id', user.id)
+    console.log('successfully updated notes content, data =', data)
+
+    // copy and pasted from the initial fetch of categories
+    let result = await supabase
+      .from('LifeCategories')
+      .select('*')
+      .eq('user_id', user.id)
+    
+    if (result.data) lifeAreas = result.data
+  }
 </script>
 
 <section class="text-gray-600 body-font overflow-hidden">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Life Dashboard</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">Metrics that correlate with how good/bad life is so you know what you neglected</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">
+        Metrics that correlate with how good/bad life is so you know what you neglected.
+        Changing your underlying lifestyle, environment, and developing habits, skills and knowledge, is probably 
+        the way to sustainably increase all these metrics over time.
+      </p>
     </div>
 
     <GoogleLoginButton 
       {user}
     />
-    <GithubLoginButton
+    <!-- <GithubLoginButton
       {user}
-    />
+    /> -->
 
     <div class="flex flex-wrap -m-4">
       {#each lifeAreas as lifeArea }
@@ -93,7 +109,10 @@
           metricValue={lifeArea.metricValue}
           notesContent={lifeArea.notesContent}
           on:note-update={e => updateNotesContent(lifeArea.name, e.detail)}
-        />
+        >
+          <button on:click={updateMetricValue(lifeArea.metricValue + 1, lifeArea.name)}>+</button>
+          <button on:click={updateMetricValue(lifeArea.metricValue - 1, lifeArea.name)}>-</button>
+        </LifeArea>
       {/each}
     </div>
   </div>
