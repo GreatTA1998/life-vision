@@ -118,7 +118,7 @@
     </div>
   </div>
 </section>
-
+<!-- 
 <iframe 
   title="blackboard" 
   src="https://explain.education/class/XqvjscRJRntaOlPnLI3N/section/XqvjscRJRntaOlPnLI3N/room/XqvjscRJRntaOlPnLI3N"
@@ -126,7 +126,7 @@
   height="500"  
 >
 
-</iframe>
+</iframe> -->
 <!-- 
 <a href="https://explain.mit.edu/class/mDbUrvjy4pe8Q5s5wyoD/section/mDbUrvjy4pe8Q5s5wyoD/room/hoAqWPNWAywd7MLgTfAh" target="_blank">
   <h2 class="text-center text-lg">
