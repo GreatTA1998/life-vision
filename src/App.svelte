@@ -103,9 +103,9 @@
     <GoogleLoginButton 
       {user}
     />
-    <!-- <GithubLoginButton
+    <GithubLoginButton
       {user}
-    /> -->
+    />
 
     <div class="flex flex-wrap -m-4">
       {#each lifeAreas as lifeArea }
